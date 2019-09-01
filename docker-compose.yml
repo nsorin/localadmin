@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+
+  localadmin_vue:
+    container_name: locadmin_vue
+    build:
+      context: .
+    ports:
+      - '8080:8080'
