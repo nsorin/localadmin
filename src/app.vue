@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <top-nav></top-nav>
-    <router-view/>
+    <div id="main-content">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -25,8 +27,14 @@
 }
 </style>
 <script>
-import TopNav from './components/common/top-nav'
+import TopNav from './components/nav/top-nav'
 export default {
   components: { TopNav }
 }
 </script>
+
+<style>
+  #main-content {
+    padding-top: 50px;
+  }
+</style>
