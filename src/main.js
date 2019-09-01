@@ -4,12 +4,25 @@ import './assets/scss/main.scss'
 
 
 import Vue from 'vue'
+import Vuex from 'vuex'
+import VuexORM from '@vuex-orm/core'
+import VuexORMAxios from '@vuex-orm/plugin-axios'
+import BootstrapVue from 'bootstrap-vue'
 import App from './app.vue'
 import router from './router'
-import store from './store'
-import BootstrapVue from 'bootstrap-vue'
+import database from './database'
+import AxiosConfig from './axios-config'
 import moment from 'moment'
 import lodash from 'lodash'
+
+Vue.use(Vuex)
+
+VuexORM.use(VuexORMAxios, {database, http: AxiosConfig})
+
+const store = new Vuex.Store({
+  plugins: [VuexORM.install(database)]
+})
+
 
 Vue.use(BootstrapVue)
 Vue.prototype.$moment = moment
