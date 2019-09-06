@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="table-responsive resource-table-container">
-                    <table class="table table-striped table-bordered resource-table">
+                    <table class="table table-striped resource-table">
                     <thead>
                         <tr>
                             <th v-for="(column, key) in columns" :key="key">
@@ -20,7 +20,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="item in items" :key="item.id">
-                            <td v-for="(column, key) in columns" :key="key">
+                            <td v-for="(column, key) in columns" :key="key" :class="'text-' + (column.align || 'left')">
                                 <slot :name="key" :data="item[key]" :item="item">
                                     {{ item[key] }}
                                 </slot>

@@ -26,7 +26,7 @@ export default {
             columns: {
                 name: {label: 'Application Name'},
                 type: {label: 'Type'},
-                actions: {label: ''}
+                actions: {label: '', align: 'right'}
             }
         }
     },
