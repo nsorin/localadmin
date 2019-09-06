@@ -4,6 +4,7 @@ import './assets/scss/main.scss'
 
 
 import Vue from 'vue'
+import './plugins/fontawesome'
 import Vuex from 'vuex'
 import VuexORM from '@vuex-orm/core'
 import VuexORMAxios from '@vuex-orm/plugin-axios'

@@ -4,6 +4,10 @@
             <template v-slot:type="{ data }">
                 {{ data.name }}
             </template>
+            <template v-slot:actions="{ item }">
+                <action-btn type="edit"></action-btn>
+                <action-btn type="delete"></action-btn>
+            </template>
         </resource-list>
     </div>
 </template>
@@ -11,16 +15,18 @@
 <script>
 import Application from "../../models/Application"
 import ResourceList from "../common/resource-list"
+import ActionBtn from "../common/action-btn"
 
 export default {
     name: "applications-main",
-    components: {ResourceList},
+    components: {ResourceList, ActionBtn},
     data() {
         return {
             model: Application,
             columns: {
                 name: {label: 'Application Name'},
-                type: {label: 'Type'}
+                type: {label: 'Type'},
+                actions: {label: ''}
             }
         }
     },
