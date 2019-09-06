@@ -1,5 +1,5 @@
 <template>
-    <a class="action-btn" :class="color" :title="title">
+    <a class="action-btn" :class="colorClass" :title="title">
         <font-awesome-icon :icon="icon"></font-awesome-icon>
     </a>
 </template>
@@ -11,13 +11,15 @@ const TYPES = {
     edit: {title: 'Edit', icon: 'pen'},
     disable: {title: 'Disable', icon: 'ban'},
     enable: {title: 'Enable', icon: 'check'},
-    delete: {title: 'Delete', icon: 'times', color: 'red'}
+    delete: {title: 'Delete', icon: 'times', color: 'red'},
+    settings: {title: 'Settings', icon: 'cog'}
 }
 
 export default {
     name: "action-btn",
     props: {
-        type: {type: String, required: true}
+        type: {type: String, required: true},
+        color: {type: String}
     },
     computed: {
         buttonType() {
@@ -29,8 +31,8 @@ export default {
         icon() {
             return this.buttonType.icon
         },
-        color() {
-            return this.buttonType.color
+        colorClass() {
+            return this.color || this.buttonType.color
         }
     }
 }
@@ -43,8 +45,14 @@ export default {
     padding: .3em;
     cursor: pointer;
 }
+.action-btn.white {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
 .action-btn:hover {
     color: #2c3e50 !important;
+}
+.action-btn.white:hover {
+    color: #ecf0f1 !important;
 }
 .action-btn.red:hover {
     color: #e74c3c !important;
