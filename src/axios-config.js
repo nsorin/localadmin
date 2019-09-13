@@ -1,5 +1,5 @@
 const config = {
-  baseURL: 'http://localhost/api',
+  baseURL: process.env.NODE_ENV === 'production' ? 'http://debian/api' : 'http://localhost',
   url: '/',
   headers: {
     'Accept': 'application/json',
