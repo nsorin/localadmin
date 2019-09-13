@@ -25,24 +25,17 @@ export default {
             model: Application,
             columns: {
                 name: {label: 'Application Name'},
-                type: {label: 'Type'},
                 actions: {label: '', align: 'right'}
             }
         }
     },
     computed: {
         applications() {
-            return Application.query().with(['type']).get()
+            return Application.query().get()
         }
     },
     mounted() {
-        Application.insert({
-            data: [
-                {id: 1, name: 'Test Vue', type: {id: 1, name: 'Vue'}},
-                {id: 2, name: 'Test Spring Boot', type: {id: 2, name: 'Spring Boot'}},
-                {id: 3, name: 'Test Laravel', type: {id: 3, name: 'Laravel'}}
-            ]
-        })
+        Application.$fetch()
     }
 }
 </script>

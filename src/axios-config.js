@@ -1,5 +1,5 @@
 const config = {
-  baseURL: 'http://localhost',
+  baseURL: 'http://localhost/api',
   url: '/',
   headers: {
     'Accept': 'application/json',
